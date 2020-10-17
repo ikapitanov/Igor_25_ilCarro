@@ -71,7 +71,7 @@ public class TestBase {
     public void clickSubmitButton() {
         new WebDriverWait(wd, 15)
                 .until(ExpectedConditions
-                        .elementToBeClickable(By.cssSelector("[href='/signup']"))).click();
+                        .elementToBeClickable(By.cssSelector("[type='submit']"))).click();
     }
 
     public boolean isSignUpTabPresentInHeader() {
