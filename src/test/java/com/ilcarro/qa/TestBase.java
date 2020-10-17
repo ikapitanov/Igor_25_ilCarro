@@ -20,7 +20,7 @@ public class TestBase {
     @BeforeSuite
     public void setUp(){
         wd = new ChromeDriver();
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         wd.get("https://ilcarro-dev-v1.firebaseapp.com/");
     }

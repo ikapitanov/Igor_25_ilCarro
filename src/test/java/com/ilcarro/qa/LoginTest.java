@@ -25,11 +25,12 @@ public class LoginTest extends TestBase{
         //"qwertyu5@gmail.com"
         //"qwertyu6@gmail.com"
         //"qwertyu7@gmail.com"
+        //"qwertyu7@gmail.com"
         //goTo login page
-        click(By.cssSelector(""));
+        clickLogInTabOnHeader();
 
         //fill login form
-        type(By.name("email"), "qwertyu@gmail.com");
+        type(By.name("email"), "qwertyu2@gmail.com");
         type(By.name("password"), "Qwerty12345");
 
         //submit login

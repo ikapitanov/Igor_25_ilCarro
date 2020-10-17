@@ -25,7 +25,7 @@ public class CreateAccountTest extends TestBase {
         //fill registration form
         type(By.cssSelector("#first_name"), "AX");
         type(By.cssSelector("#second_name"),"RV");
-        type(By.cssSelector("#email"),"qwertyu8@gmail.com");
+        type(By.cssSelector("#email"),"qwertyu9@gmail.com");
         type(By.cssSelector("#password"),"Qwerty12345");
 
         //click check policy
