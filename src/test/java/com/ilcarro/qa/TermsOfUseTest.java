@@ -12,8 +12,5 @@ public class TermsOfUseTest extends TestBase {
         System.out.println(wd.findElement(By.cssSelector("#root")).getText());
     }
 
-    @AfterMethod (enabled = false)
-    public void tearDown(){
-        wd.quit();
-    }
+
 }

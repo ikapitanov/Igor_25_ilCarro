@@ -29,6 +29,8 @@ public class LoginTest extends TestBase{
         //"qwertyu8@gmail.com"
         //"qwertyu10@gmail.com"
         //"qwertyu11@gmail.com"
+        //"qwertyu12@gmail.com"
+        //"qwertyu13@gmail.com"
         //goTo login page
         clickLogInTabOnHeader();
 

@@ -12,8 +12,5 @@ public class SearchTest extends TestBase {
         System.out.println(wd.findElement(By.xpath("//h3[contains(text(),'Find your car now!')]")).getText());
     }
 
-    @AfterMethod (enabled = false)
-    public void tearDown(){
-        wd.quit();
-    }
+
 }

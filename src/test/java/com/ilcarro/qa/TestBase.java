@@ -47,7 +47,7 @@ public class TestBase {
         }
     }
 
-    @AfterSuite(enabled = false)
+    @AfterSuite
     public void tearDown(){
         wd.quit();
     }
@@ -88,5 +88,16 @@ public class TestBase {
 
     public boolean isUserLoggedIn() {
         return isElementPresent(By.xpath("//a[contains(., 'logOut')]"));
+    }
+
+    public void fillRegistrationForm(String firstName, String secondName, String email, String password) {
+        type(By.cssSelector("#first_name"), firstName);
+        type(By.cssSelector("#second_name"), secondName);
+        type(By.cssSelector("#email"), email);
+        type(By.cssSelector("#password"), password);
+    }
+
+    public void pause(int millis) throws InterruptedException {
+        Thread.sleep(millis);
     }
 }

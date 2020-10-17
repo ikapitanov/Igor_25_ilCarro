@@ -16,22 +16,20 @@ public class CreateAccountTest extends TestBase {
     }
 
     @Test
-    public void testSignUp(){
+    public void testSignUp() throws InterruptedException {
 
         //click on SignUp button
         click((By.cssSelector("[href='/signup']")));
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
         //fill registration form
-        type(By.cssSelector("#first_name"), "AX");
-        type(By.cssSelector("#second_name"),"RV");
-        type(By.cssSelector("#email"),"qwertyu11@gmail.com");
-        type(By.cssSelector("#password"),"Qwerty12345");
+        fillRegistrationForm("AD", "RV", "qwertyu13@gmail.com", "Qwerty12345");
 
         //click check policy
         click(By.cssSelector("#check_policy"));
 
         //click submit button
+        pause(2000);
         clickSubmitButton();
 
         //check login form displayed
