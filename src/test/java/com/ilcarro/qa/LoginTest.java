@@ -1,0 +1,40 @@
+package com.ilcarro.qa;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class LoginTest extends TestBase{
+    @BeforeMethod
+    public void ensurePreconditions(){
+        //goTo login page
+        if (!isLoginFormPresent()){
+            //if user logged in, click logout, after go to login
+            if (isUserLoggedIn()){
+                logOut();
+            }
+            clickLogInTabOnHeader();
+        }
+    }
+
+    @Test
+    public void loginRegisteredUserPositiveTest(){
+        //qwertyu@gmail.com
+        //qwertyu2@gmail.com
+        //qwertyu4@gmail.com"
+        //"qwertyu5@gmail.com"
+        //"qwertyu6@gmail.com"
+        //"qwertyu7@gmail.com"
+        //goTo login page
+        click(By.cssSelector(""));
+
+        //fill login form
+        type(By.name("email"), "qwertyu@gmail.com");
+        type(By.name("password"), "Qwerty12345");
+
+        //submit login
+        clickSubmitButton();
+
+        //Assert userLoggedIn
+    }
+}

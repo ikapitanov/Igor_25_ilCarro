@@ -8,7 +8,7 @@ public class TermsOfUseTest extends TestBase {
 
     @Test
     public void isTermsOfUsePresent(){
-        wd.findElement(By.cssSelector("[href='/terms']")).click();
+        click(By.cssSelector("[href='/terms']"));
         System.out.println(wd.findElement(By.cssSelector("#root")).getText());
     }
 

@@ -9,41 +9,34 @@ public class CreateAccountTest extends TestBase {
     //preconditions: user shoud be logged out
     @BeforeMethod
     public void ensurePreconditions(){
-        if (!isElementPresent(By.cssSelector("[href='/signup']"))){   //sing up not present
-            wd.findElement(By.xpath("//a[contains(., 'logOut')]")).click();   //click on Input button
+        if (isSignUpTabPresentInHeader()){   //sing up not present
+            logOut();   //click on Input button
         }
 
     }
 
     @Test
     public void testSignUp(){
-        //click on SignUp buton
-        wd.findElement((By.cssSelector("[href='/signup']"))).click();
+
+        //click on SignUp button
+        click((By.cssSelector("[href='/signup']")));
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
         //fill registration form
-        wd.findElement(By.cssSelector("#first_name")).click();
-        wd.findElement(By.cssSelector("#first_name")).clear();
-        wd.findElement(By.cssSelector("#first_name")).sendKeys("Igor");
+        type(By.cssSelector("#first_name"), "AX");
+        type(By.cssSelector("#second_name"),"RV");
+        type(By.cssSelector("#email"),"qwertyu8@gmail.com");
+        type(By.cssSelector("#password"),"Qwerty12345");
 
-        wd.findElement(By.cssSelector("#second_name")).click();
-        wd.findElement(By.cssSelector("#second_name")).clear();
-        wd.findElement(By.cssSelector("#second_name")).sendKeys("Kapitanov");
+        //click check policy
+        click(By.cssSelector("#check_policy"));
 
-        wd.findElement(By.cssSelector("#email")).click();
-        wd.findElement(By.cssSelector("#email")).clear();
-        wd.findElement(By.cssSelector("#email")).sendKeys("kapitanov26@gmail.com");
-
-        wd.findElement(By.cssSelector("#password")).click();
-        wd.findElement(By.cssSelector("#password")).clear();
-        wd.findElement(By.cssSelector("#password")).sendKeys("Qwerty12345");
-
-        wd.findElement(By.cssSelector("#check_policy")).click();
         //click submit button
+        clickSubmitButton();
 
         //check login form displayed
+        Assert.assertTrue(isLoginFormPresent());
     }
-
 
 
 }
