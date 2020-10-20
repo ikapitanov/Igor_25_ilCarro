@@ -3,12 +3,9 @@ package com.ilcarro.qa;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.util.NoSuchElementException;
@@ -90,11 +87,11 @@ public class TestBase {
         return isElementPresent(By.xpath("//a[contains(., 'logOut')]"));
     }
 
-    public void fillRegistrationForm(String firstName, String secondName, String email, String password) {
-        type(By.cssSelector("#first_name"), firstName);
-        type(By.cssSelector("#second_name"), secondName);
-        type(By.cssSelector("#email"), email);
-        type(By.cssSelector("#password"), password);
+    public void fillRegistrationForm(User user) {
+        type(By.cssSelector("#first_name"), user.getFirstName());
+        type(By.cssSelector("#second_name"), user.getSecondName());
+        type(By.cssSelector("#email"), user.getEmail());
+        type(By.cssSelector("#password"), user.getPassword());
     }
 
     public void pause(int millis) throws InterruptedException {

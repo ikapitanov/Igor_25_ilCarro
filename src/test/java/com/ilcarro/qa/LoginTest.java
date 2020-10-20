@@ -31,16 +31,21 @@ public class LoginTest extends TestBase{
         //"qwertyu11@gmail.com"
         //"qwertyu12@gmail.com"
         //"qwertyu13@gmail.com"
+        //"qwertyu14@gmail.com"
         //goTo login page
         clickLogInTabOnHeader();
 
         //fill login form
-        type(By.name("email"), "qwertyu2@gmail.com");
-        type(By.name("password"), "Qwerty12345");
+        fillLoginForm();
 
         //submit login
         clickSubmitButton();
 
         //Assert userLoggedIn
+    }
+
+    public void fillLoginForm() {
+        type(By.name("email"), "qwertyu2@gmail.com");
+        type(By.name("password"), "Qwerty12345");
     }
 }

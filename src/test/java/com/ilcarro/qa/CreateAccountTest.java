@@ -23,7 +23,7 @@ public class CreateAccountTest extends TestBase {
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
         //fill registration form
-        fillRegistrationForm("AD", "RV", "qwertyu13@gmail.com", "Qwerty12345");
+        fillRegistrationForm(new User("AD", "RV", "qwertyu14@gmail.com", "Qwerty12345"));
 
         //click check policy
         click(By.cssSelector("#check_policy"));
