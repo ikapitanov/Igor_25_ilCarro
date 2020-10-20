@@ -87,12 +87,7 @@ public class TestBase {
         return isElementPresent(By.xpath("//a[contains(., 'logOut')]"));
     }
 
-    public void fillRegistrationForm(User user) {
-        type(By.cssSelector("#first_name"), user.getFirstName());
-        type(By.cssSelector("#second_name"), user.getSecondName());
-        type(By.cssSelector("#email"), user.getEmail());
-        type(By.cssSelector("#password"), user.getPassword());
-    }
+
 
     public void pause(int millis) throws InterruptedException {
         Thread.sleep(millis);

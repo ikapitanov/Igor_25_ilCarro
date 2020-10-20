@@ -1,16 +1,29 @@
 package com.ilcarro.qa;
 
 public class User {
-    private final String firstName;
-    private final String secondName;
-    private final String email;
-    private final String password;
+    private  String firstName;
+    private  String secondName;
+    private  String email;
+    private  String password;
 
-    public User(String firstName, String secondName, String email, String password) {
+    public User withFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
+    }
+
+    public User withSecondName(String secondName) {
         this.secondName = secondName;
+        return this;
+    }
+
+    public User withEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public User withPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public String getFirstName() {

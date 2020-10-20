@@ -23,7 +23,11 @@ public class CreateAccountTest extends TestBase {
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
         //fill registration form
-        fillRegistrationForm(new User("AD", "RV", "qwertyu14@gmail.com", "Qwerty12345"));
+        fillRegistrationForm(new User()
+                .withFirstName("AD")
+                .withSecondName("RV")
+                .withEmail("qwertyu14@gmail.com")
+                .withPassword("Qwerty12345"));
 
         //click check policy
         click(By.cssSelector("#check_policy"));
@@ -35,6 +39,14 @@ public class CreateAccountTest extends TestBase {
         //check login form displayed
         Assert.assertTrue(isLoginFormPresent());
     }
+
+    public void fillRegistrationForm(User user) {
+        type(By.name("first_name"), user.getFirstName());
+        type(By.name("second_name"), user.getSecondName());
+        type(By.name("email"), user.getEmail());
+        type(By.name("password"), user.getPassword());
+    }
+
 
 
 }
