@@ -1,6 +1,5 @@
 package com.ilcarro.qa;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,12 +8,12 @@ public class LoginTest extends TestBase{
     @BeforeMethod
     public void ensurePreconditions(){
         //goTo login page
-        if (!isLoginFormPresent()){
+        if (!app.getUser().isLoginFormPresent()){
             //if user logged in, click logout, after go to login
-            if (isUserLoggedIn()){
-                logOut();
+            if (app.getUser().isUserLoggedIn()){
+                app.getUser().logOut();
             }
-            clickLogInTabOnHeader();
+            app.getHeader().clickLogInTabOnHeader();
         }
     }
 
@@ -36,14 +35,14 @@ public class LoginTest extends TestBase{
 
 
         //fill login form
-        fillLoginForm(new User().withEmail("qwertyu2@gmail.com").withPassword("Qwerty12345"));
+        app.getUser().fillLoginForm(new User().withEmail("qwertyu2@gmail.com").withPassword("Qwerty12345"));
 
         //submit login
-        clickSubmitButton();
+        app.getCar().clickSubmitButton();
 
         //Assert user logged in
-        Assert.assertTrue(isUserLoggedIn());
-        String email = getEmailFromHeader();
+        Assert.assertTrue(app.getUser().isUserLoggedIn());
+        String email = app.getHeader().getEmailFromHeader();
         System.out.println(email);
         Assert.assertEquals(email, "qwertyu2@gmail.com");
     }

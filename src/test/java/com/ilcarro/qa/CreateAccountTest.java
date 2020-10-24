@@ -1,6 +1,5 @@
 package com.ilcarro.qa;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,8 +8,8 @@ public class CreateAccountTest extends TestBase {
     //preconditions: user should be logged out
     @BeforeMethod
     public void ensurePreconditions(){
-        if (isSignUpTabPresentInHeader()){   //sing up not present
-            logOut();   //click on Input button
+        if (app.getHeader().isSignUpTabPresentInHeader()){   //sing up not present
+            app.user.logOut();   //click on Input button
         }
     }
 
@@ -18,23 +17,23 @@ public class CreateAccountTest extends TestBase {
     public void testSignUp() throws InterruptedException {
 
         //click on SignUp button
-        openRegistrationFormFromHeader();
-        Assert.assertTrue(isRegistrationFormOpened());
+        app.getUser().openRegistrationFormFromHeader();
+        Assert.assertTrue(app.user.isRegistrationFormOpened());
 
         //fill registration form
-        fillRegistrationForm(new User()
+        app.user.fillRegistrationForm(new User()
                 .withFirstName("AD")
                 .withSecondName("RV")
-                .withEmail("qwertyu14@gmail.com")
+                .withEmail("qwertyu15@gmail.com")
                 .withPassword("Qwerty12345"));
 
-        selectPolicyCheckBox();
+        app.getUser().selectPolicyCheckBox();
 
-        pause(2000);
-        clickSubmitButton();
+        app.getCar().pause(2000);
+        app.getCar().clickSubmitButton();
 
         //check login form displayed
-        Assert.assertTrue(isLoginFormPresent());
+        Assert.assertTrue(app.getUser().isLoginFormPresent());
     }
 
 

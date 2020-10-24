@@ -6,7 +6,7 @@ public class TermsOfUseTest extends TestBase {
 
     @Test
     public void isTermsOfUsePresent(String textFromTermsHeader){
-        openTermsFromHeader();
+        app.getHeader().openTermsFromHeader();
         System.out.println(textFromTermsHeader);
     }
 

@@ -7,8 +7,9 @@ public class OpenHomePageTests  extends TestBase{
     public void homePageTest(){
         System.out.println("site opened");
        // wd.findElement(By.cssSelector(".Main_mainpage__find_your_car__AHLkw"));
-        System.out.println("FindCarForm: " + isFindCarFormPresent());
-        isFindCarFormPresent2();
+        System.out.println("FindCarForm: " + app.getCar().isFindCarFormPresent());
+        app.getCar().isFindCarFormPresent2();
+        app.getCar().jumpToFooter();
     }
 
 
