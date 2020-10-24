@@ -34,8 +34,6 @@ public class LoginTest extends TestBase{
         //"qwertyu13@gmail.com"
         //"qwertyu14@gmail.com"
 
-        //goTo login page
-        clickLogInTabOnHeader();
 
         //fill login form
         fillLoginForm(new User().withEmail("qwertyu2@gmail.com").withPassword("Qwerty12345"));
@@ -45,16 +43,9 @@ public class LoginTest extends TestBase{
 
         //Assert user logged in
         Assert.assertTrue(isUserLoggedIn());
-        String email = wd.findElement(By.cssSelector("[href='/account']")).getText();
+        String email = getEmailFromHeader();
         System.out.println(email);
         Assert.assertEquals(email, "qwertyu2@gmail.com");
     }
 
-    public void fillLoginForm(User user) {
-        type(By.name("email"), user.getEmail());
-        type(By.name("password"), user.getPassword());
-
-    //    type(By.name("email"), "qwertyu2@gmail.com");
-    //    type(By.name("password"), "Qwerty12345");
-    }
 }

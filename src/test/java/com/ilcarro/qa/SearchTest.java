@@ -8,8 +8,8 @@ public class SearchTest extends TestBase {
 
     @Test
     public void isSearchPresent(){
-        click(By.cssSelector("[href='/search']"));
-        System.out.println(wd.findElement(By.xpath("//h3[contains(text(),'Find your car now!')]")).getText());
+        openSearchFromHeader();
+        System.out.println(getTextFromSearchHeader());
     }
 
 
